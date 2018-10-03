@@ -1,0 +1,51 @@
+.nodis
+{
+	margin:0;
+	padding: 0;
+}
+.nokx
+{
+	margin-top:0;	
+}
+.myCarousel
+{
+	margin:60px 0 0 0;
+}
+.information
+{
+	background-color: #eee;
+}
+#information
+{
+	background-color: #eee;
+}
+.info-content
+{
+	background-color: #fff;
+	margin:0 0 20px 0;
+	box-shadow: 2px 2px 3px #ccc;
+}
+.info-content img
+{
+	margin :12px 0;
+}
+.info-content h4
+{
+	color: #333;
+	padding: 2px 0 0 0;
+	font-size: 14px;
+}
+.info-content p
+{
+	line-height: 1.6;
+}
+
+
+#footer
+{
+	background-color: #eee;
+	border-top: 1px solid #ccc;
+	padding :20px;
+	text-align: center;
+	color:#666;
+}

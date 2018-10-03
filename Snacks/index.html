@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>台院小店 - 零食小吃</title>
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/jquery.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+$(document).ready(function(){
+	var mySwiper = new Swiper('#slide',{
+		  autoplay:5000,
+		  visibilityFullFit : true,
+		  loop:true,
+		  pagination : '.pagination',
+	  });
+	//product list:Tab
+	$(".tab_proList dd").eq(0).show().siblings(".tab_proList dd").hide();
+	$(".tab_proList dt a").eq(0).addClass("currStyle");
+	$(".tab_proList dt a").click(function(){
+	var liindex = $(".tab_proList dt a").index(this);
+	$(this).addClass("currStyle").siblings().removeClass("currStyle");
+	$(".tab_proList dd").eq(liindex).fadeIn(150).siblings(".tab_proList dd").hide();
+	});
+   //飞入动画，具体根据实际情况调整
+   $(".addToCart").click(function(){
+	        $(".hoverCart a").html(parseInt($(".hoverCart a").html())+1);/*悬浮购物车+1*/
+            var shopOffset = $(".hoverCart").offset();
+            var cloneDiv = $(this).parent().siblings(".goodsPic").clone();
+            var proOffset = $(this).parent().siblings(".goodsPic").offset();
+            cloneDiv.css({ "position": "absolute", "top": proOffset.top, "left": proOffset.left });
+            $(this).parent().siblings(".goodsPic").parent().append(cloneDiv);
+            cloneDiv.animate({
+				width:0,
+				height:0,
+                left: shopOffset.left,
+                top: shopOffset.top,
+				opacity:1
+            },"slow");
+	   });
+});
+</script>
+</head>
+<body>
+<!--header-->
+<header>
+ <a href="#" class="location">14号楼</a>
+ <h1>零食小吃</h1>
+ <a href="#" class="rt_searchIcon">&#37;</a>
+</header>
+<!--slide-->
+<div id="slide">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+     <a href="#">
+      <img src="img/slide/slide001.jpg"/>
+     </a>
+    </div>
+    <div class="swiper-slide">
+     <a href="#">
+      <img src="img/slide/slide002.jpg"/>
+     </a>
+    </div>
+  </div>
+  <div class="pagination"></div>  
+</div>
+<!--categoryList-->
+<ul class="categoryLiIcon">
+ <li>
+  <a href="#">
+   <img src="img/icon/Choc_bar.png"/>
+   <em>糖果巧克力</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Cake.png"/>
+   <em>饼干糕点</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Sale_bag.png"/>
+   <em>坚果炒货</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Apple.png"/>
+   <em>蜜饯果脯</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Drink.png"/>
+   <em>果汁饮料</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Tea.png"/>
+   <em>奶茶咖啡</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/Ice_Cream.png"/>
+   <em>冷饮冰淇淋</em>
+  </a>
+ </li>
+ <li>
+  <a href="#">
+   <img src="img/icon/menu_bg_15.png"/>
+   <em>常购品</em>
+  </a>
+ </li>
+</ul>
+<!--Tab:productList-->
+<dl class="tab_proList">
+ <dt>
+  <a>热销</a>
+  <a>新品</a>
+  <a>打折</a>
+ </dt>
+ <dd>
+  <ul>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods001.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新品水果四季柚新鲜卖</a>
+     </h2>
+     <p>
+      <del>5.90元/斤</del>
+     </p>
+     <p>
+      <strong class="price">3.90元/斤</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods002.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">法国进口经典马卡龙巧克力</a>
+     </h2>
+     <p>
+      <del>12.90/个</del>
+     </p>
+     <p>
+      <strong class="price">8.90/个</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods003.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">春季新品哈根达斯</a>
+     </h2>
+     <p>
+      <del>58.90</del>
+     </p>
+     <p>
+      <strong class="price">60.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+  </ul>
+ </dd>
+ <dd>
+  <ul>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods003.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods008.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods009.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+ </dd>
+ <dd>
+  <ul>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods005.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods006.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li>
+   <li>
+    <a href="#" class="goodsPic">
+     <img src="img/goods/goods007.jpg"/>
+    </a>
+    <div class="goodsInfor">
+     <h2>
+      <a href="#">新鲜生菜两斤装特惠</a>
+     </h2>
+     <p>
+      <del>5.90</del>
+     </p>
+     <p>
+      <strong class="price">3.90</strong>
+     </p>
+     <a class="addToCart">&#126;</a>
+    </div>
+   </li> 
+ </dd>
+</dl>
+<!--floatCart-->
+<div class="hoverCart">
+ <a href="#">0</a>
+</div>
+<!--fixedNav:footer-->
+<div style="height:1.2rem;"></div>
+<nav>
+ <a href="index.html" class="homeIcon">首页</a>
+ <a href="#" class="categoryIcon">分类</a>
+ <a href="#" class="cartIcon">购物车</a>
+ <a href="#" class="userIcon">我的</a>
+</nav>
+</body>
+</html>
